@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="no_of_quantity_sale_order_report" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[@class='clearfix']" position="after">
+            <div style="padding-top:20px; padding-bottom:20px;">
+                <p><b><span t-if="doc.is_check_display_report == true" t-field="doc.terms_id"/></b></p>
+                <p><span t-if="doc.is_check_display_report == true" t-field="doc.conditions_details"/></p>
+            </div>
+        </xpath>
+    </template>
+</odoo>

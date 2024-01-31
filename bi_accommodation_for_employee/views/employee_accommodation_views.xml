@@ -1,0 +1,124 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="employee_accommodation_list">
+            <field name="name">employee.accommodation.list</field>
+            <field name="model">employee.accommodation</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="request_seq"/>
+                    <field name="employee_id"/>
+                    <field name="email"/>
+                    <field name="phone"/>
+                    <field name="department_id"/>
+                    <field name="location_id"/>
+                    <field name="paid_by"/>
+                    <field name="state"/>
+                    <field name="company_id"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="employee_accommodation_form">
+            <field name="name">employee.accommodation.form</field>
+            <field name="model">employee.accommodation</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="send_manager" type="object" string="Submit" class="btn-primary"
+                                invisible="state != 'draft'" />
+                        <button name="send_hr" type="object" string="Approve" class="btn-primary"
+                                invisible="state not in 'manager'"
+                                groups="bi_accommodation_for_employee.group_manager"/>
+                        <button name="expense_total" type="object" string="Expense" class="btn-primary"
+                                invisible="state not in 'hr'"
+                                groups="bi_accommodation_for_employee.group_hr"/>
+                        <button name="reject_request" type="object" string="Reject" class="btn-primary"
+                                invisible="state not in ['hr','manager']"
+                                groups="bi_accommodation_for_employee.group_hr,bi_accommodation_for_employee.group_manager"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,manager,hr,expenses,reject"/>
+                    </header>
+                    <sheet>
+                        <field name="expense_id" invisible="1"/>
+                        <div class="oe_button_box" name="button_box" invisible="not expense_id">
+                            <button name="view_expenses" type="object" class="oe_stat_button" icon="fa-external-link">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_text">Expenses</span>
+                                </div>
+                            </button>
+                        </div>
+                        <h1>
+                            <field name="request_seq"/>
+                        </h1>
+                        <group>
+                            <group>
+                               <field name="employee_id"/>
+                                <field name="email"/>
+                                <field name="phone"/>
+                                <field name="manager_id"/>
+                                <field name="department_id"/>
+                                <field name="company_id"/>
+                            </group>
+                            <group>
+                                <field name="req_date"/>
+                                <field name="paid_by"/>
+                                <field name="location_id"/>
+                                <field name="amount"/>
+                                <field name="reject_reason" invisible="state != 'reject'"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Hotels">
+                               <field name="book_ids">
+                                    <tree string="Hotels" editable="bottom">
+                                        <field name="hotel_id"/>
+                                        <field name="location_id" column_invisible="1"/>
+                                        <field name="starting_date"/>
+                                        <field name="ending_date"/>
+                                        <field name="count_day"/>
+                                        <field name="cost_per_day"/>
+                                        <field name="total_cost"/>
+                                        <field name="state" column_invisible="parent.state == 'draft'"/>
+                                        <button name="book_approve" type="object" string="Approve" class="btn-primary" invisible="state != 'draft' or parent.state !=  'manager'" groups="bi_accommodation_for_employee.group_manager"/>
+                                        <button name="book_reject" type="object" string="Reject" class="btn-primary" invisible="state != 'draft' or parent.state !=  'manager'" groups="bi_accommodation_for_employee.group_manager"/>
+                                    </tree>
+                                    <form>
+                                        <header>
+                                                <field name="state" widget="statusbar" statusbar_visible="draft,approve,reject"/>
+                                        </header>
+                                        <group>
+                                             <field name="hotel_id"/>
+                                            <field name="location_id" invisible="1"/>
+                                            <field name="starting_date"/>
+                                            <field name="ending_date"/>
+                                            <field name="count_day"/>
+                                            <field name="cost_per_day"/>
+                                            <field name="total_cost"/>
+                                            <field name="accommodation_id" invisible="1"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Description">
+                                <group>
+                                    <field name="description"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="employee_accommodation_action">
+            <field name="name">Accommodation For Employee</field>
+            <field name="res_model">employee.accommodation</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="menu_employee_details" name="Accommodation For Employee" parent="menu_accommodation_management"
+                  action="employee_accommodation_action" sequence="8"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,489 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* custom_background
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.1alpha1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-04 13:21+0000\n"
+"PO-Revision-Date: 2021-10-04 13:21+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: custom_background
+#: model_terms:ir.ui.view,arch_db:custom_background.view_ir_action_inherit_form
+msgid ""
+"<b>Expression:</b>\n"
+"                                        If the option \"Expression\" is selected you can\n"
+"                                        set custom background PDF's based on\n"
+"                                        expressions.\n"
+"                                        <br/>\n"
+"                                        For example if you want only a background on\n"
+"                                        every second page you could do:\n"
+"                                        <br/>\n"
+"                                        result=page%2==0\n"
+"                                        <br/>\n"
+"                                        If you want only a background on every uneven\n"
+"                                        page (for example page 1,3 ,5) you could do:\n"
+"                                        <br/>\n"
+"                                        result=page%2!=0\n"
+"                                        <br/>\n"
+"                                        Or if you only want a background starting from\n"
+"                                        page 2 on for example you could do:\n"
+"                                        <br/>\n"
+"                                        result=page&gt;2"
+msgstr ""
+"<b>Uitdrukking:</b>\n"
+"                                        Als de optie “Expressie” is geselecteerd, kunt u\n"
+"                                        Een aangepaste achtergrond-PDF’s instellen op basis van\n"
+"                                        expressies.\n"
+"                                        <br/>\n"
+"                                        Als u bijvoorbeeld alleen een achtergrond op\n"
+"                                        elke tweede pagina wil, dan kunt u bijvoorbeeld dit doen:\n"
+"                                        <br/>\n"
+"                                        result=page%2==0\n"
+"                                        <br/>\n"
+"                                        Als u alleen een achtergrond wilt op elke oneven\n"
+"                                        pagina (bijvoorbeeld pagina 1,3 ,5) kunt u doen:\n"
+"                                        <br/>\n"
+"                                        result=page%2!=0\n"
+"                                        <br/>\n"
+"                                        Of als u alleen een achtergrond wilt vanaf\n"
+"                                        pagina 2, dan kunt u bijvoorbeeld dit doen:\n"
+"                                        <br/>\n"
+"                                        result=page&gt;2"
+
+#. module: custom_background
+#: model_terms:ir.ui.view,arch_db:custom_background.view_ir_action_inherit_form
+msgid ""
+"<b>First Page:</b>\n"
+"                                        If the option \"First Page\" is chosen it will not\n"
+"                                        look at any other configurations for the first\n"
+"                                        page of the PDF.\n"
+"                                        <br/>\n"
+"                                        If no \"Background PDF\" is set on the \"First\n"
+"                                        Page\" rule then it will set the background PDF\n"
+"                                        from the \"Fixed Page\", \"Expression Page\" or\n"
+"                                        \"Remaining Pages\"."
+msgstr ""
+"<b>Eerste pagina:</b>\n"
+"                                         Als de optie “Eerste pagina” is gekozen, dan wortd\n"
+"                                         Niet naar andere instellingen gekeken dan deze\n"
+"                                         Voor de eerste pagina van de pdf.\n"
+"                                         <br/>\n"
+"                                         Als er geen “Achtergrond PDF” is ingesteld op de “Eerste\n"
+"                                         Pagina” regel dan zal het de achtergrond PDF instellen\n"
+"                                         van de “Vaste pagina”, “Expressie pagina” of\n"
+"                                         “Overige pagina’s”."
+
+#. module: custom_background
+#: model_terms:ir.ui.view,arch_db:custom_background.view_ir_action_inherit_form
+msgid ""
+"<b>Fixed Pages:</b>\n"
+"                                        If the option \"Fixed Pages\" is selected you can\n"
+"                                        enter for which page you'd like to use the\n"
+"                                        \"Background PDF\".\n"
+"                                        For example: setting a custom background PDF for\n"
+"                                        the third page of a report by entering \"3\" in\n"
+"                                        the field \"Page Number\".\n"
+"                                        <br/>\n"
+"                                        If the entered page number is first and last\n"
+"                                        then it will set the background from \"First\n"
+"                                        Page\" and \"Last Page\" if we configured the first\n"
+"                                        page and the last page otherwise it will use the\n"
+"                                        \"Fixed Page\" configuration."
+msgstr ""
+"<b>Vaste pagina’s:</b>\n"
+"                                         Als de optie “Vaste pagina’s” is geselecteerd, kunt u\n"
+"                                         Instellen voor welke pagina u de\n"
+"                                         “Achtergrond-PDF” wilt gebruiken.\n"
+"                                         Bijvoorbeeld: een aangepaste achtergrond-PDF instellen voor\n"
+"                                         de derde pagina van een rapport door “3” in te voeren in\n"
+"                                         het veld “Paginanummer”.\n"
+"                                         <br/>\n"
+"                                         Als het ingevoerde paginanummer de eerste en de laatste is\n"
+"                                         dan zal het de achtergrond instellen van “Eerste\n"
+"                                         Pagina” en “Laatste pagina” als we de eerste hebben geconfigureerd,\n"
+"                                         anders gebruikt het de\n"
+"                                         Configuratie “Vaste pagina”."
+
+#. module: custom_background
+#: model_terms:ir.ui.view,arch_db:custom_background.view_ir_action_inherit_form
+msgid ""
+"<b>Last Page:</b>\n"
+"                                        If the option \"Last Page\" is selected, it will\n"
+"                                        not check for any other configurations for the\n"
+"                                        last page.\n"
+"                                        It will only set the last page background PDF\n"
+"                                        that you've applied.\n"
+"                                        <br/>\n"
+"                                        If there was no \"Background PDF\" set on the last\n"
+"                                        page then it will set the background PDF from\n"
+"                                        the \"Fixed Page\", \"Expression Page\" or\n"
+"                                        \"Remaining Pages\".\n"
+"                                        <br/>"
+msgstr ""
+"<b>Laatste pagina:</b>\n"
+"                                         Als de optie “Laatste pagina” is geselecteerd, wordt\n"
+"                                         niet gecontroleerd op andere instellingen voor de\n"
+"                                         laatste pagina.\n"
+"                                         Het zal alleen de laatste pagina-achtergrond PDF instellen\n"
+"                                         die u heeft ingesteld.\n"
+"                                         <br/>\n"
+"                                         Als er geen “Achtergrond PDF” was ingesteld op de laatste\n"
+"                                         pagina, dan zal het de achtergrond-PDF instellen van\n"
+"                                         de “Vaste pagina”, “Expressie pagina” of\n"
+"                                         “Overige pagina’s”.\n"
+"                                         <br/>"
+
+#. module: custom_background
+#: model_terms:ir.ui.view,arch_db:custom_background.view_ir_action_inherit_form
+msgid ""
+"<b>Remaining Pages:</b>\n"
+"                                        If the option \"Remaining Pages\" is selected the\n"
+"                                        module will apply the \"Background PDF\" set on\n"
+"                                        this rule for any pages that have no rule.\n"
+"                                        You could use this for example if you have a\n"
+"                                        rule \"First Page\" set and then have a second\n"
+"                                        rule \"Remaining Pages\" it would apply this\n"
+"                                        background on page 2, 3, .. and any other page\n"
+"                                        you have not configured."
+msgstr ""
+"<b>Overige pagina’s:</b>\n"
+"                                         Als de optie “Overige pagina’s” is geselecteerd, wordt de\n"
+"                                         “Achtergrond PDF” toegepast op\n"
+"                                         deze regel voor alle pagina’s die geen regel hebben.\n"
+"                                         U kunt dit bijvoorbeeld gebruiken als u een\n"
+"                                         regel “Eerste pagina” instelt en dan een tweede\n"
+"                                         regel “Overige pagina’s”. Het zou dan de\n"
+"                                         achtergrond op instellen op pagina 2, 3, .. en elke andere pagina\n"
+"                                         Die u niet heeft geconfigureerd."
+
+#. module: custom_background
+#: model_terms:ir.ui.view,arch_db:custom_background.view_ir_action_inherit_form
+msgid ""
+"<i class=\"fa fa-info fa-3x text-info float-left\" role=\"img\" aria-"
+"label=\"Info\" title=\"Info\"/>"
+msgstr ""
+
+#. module: custom_background
+#: model:ir.model.fields,field_description:custom_background.field_ir_actions_report__background_ids
+#: model_terms:ir.ui.view,arch_db:custom_background.view_ir_action_inherit_form
+msgid "Background Configuration"
+msgstr "Achtergrondconfiguratie"
+
+#. module: custom_background
+#: model_terms:ir.ui.view,arch_db:custom_background.view_ir_action_inherit_form
+msgid "Background Configuration Per Language"
+msgstr "Achtergrondconfiguratie per taal"
+
+#. module: custom_background
+#: model:ir.model.fields,field_description:custom_background.field_ir_actions_report__custom_report_background_image
+msgid "Background Image"
+msgstr "Achtergrondafbeelding"
+
+#. module: custom_background
+#: model:ir.model.fields,field_description:custom_background.field_report_background_lang__background_pdf
+#: model:ir.model.fields,field_description:custom_background.field_report_background_line__background_pdf
+#: model_terms:ir.ui.view,arch_db:custom_background.res_company_view_inherit
+#: model_terms:ir.ui.view,arch_db:custom_background.view_ir_action_inherit_form
+msgid "Background PDF"
+msgstr "Achtergrond PDF"
+
+#. module: custom_background
+#: model:ir.model.fields,field_description:custom_background.field_ir_actions_report__bg_per_lang_ids
+#: model:ir.model.fields,field_description:custom_background.field_res_company__bg_per_lang_ids
+msgid "Background Per Language"
+msgstr "Achtergrond per taal"
+
+#. module: custom_background
+#: model:ir.model,name:custom_background.model_res_company
+msgid "Companies"
+msgstr "Bedrijven"
+
+#. module: custom_background
+#: model:ir.model.fields,field_description:custom_background.field_report_background_lang__company_id
+msgid "Company"
+msgstr "Bedrijf"
+
+#. module: custom_background
+#: model_terms:ir.ui.view,arch_db:custom_background.res_company_view_inherit
+msgid "Configuration"
+msgstr "Instellingen"
+
+#. module: custom_background
+#: model:ir.model.fields,field_description:custom_background.field_report_background_lang__create_uid
+#: model:ir.model.fields,field_description:custom_background.field_report_background_line__create_uid
+msgid "Created by"
+msgstr "Aangemaakt door"
+
+#. module: custom_background
+#: model:ir.model.fields,field_description:custom_background.field_report_background_lang__create_date
+#: model:ir.model.fields,field_description:custom_background.field_report_background_line__create_date
+msgid "Created on"
+msgstr "Aangemaakt op"
+
+#. module: custom_background
+#: model_terms:ir.ui.view,arch_db:custom_background.res_company_view_inherit
+msgid "Custom Background Image"
+msgstr "Achtergrondafbeelding"
+
+#. module: custom_background
+#: model_terms:ir.ui.view,arch_db:custom_background.res_company_view_inherit
+msgid "Custom Background Image Per Language"
+msgstr "Aangepaste achtergrondafbeelding per taal"
+
+#. module: custom_background
+#: model:ir.model.fields,field_description:custom_background.field_ir_actions_report__custom_report_background
+#: model:ir.model.fields,field_description:custom_background.field_res_company__custom_report_background_image
+msgid "Custom Report Background"
+msgstr "Achtergrondafbeelding layouts"
+
+#. module: custom_background
+#: model:ir.model.fields,field_description:custom_background.field_ir_actions_report__custom_report_type
+msgid "Custom Report Type"
+msgstr "Afwijkende achtergrond"
+
+#. module: custom_background
+#: model_terms:ir.ui.view,arch_db:custom_background.view_ir_action_inherit_form
+msgid "Detailed algorithm (with their priorities):"
+msgstr "Gedetailleerd algoritme (met hun prioriteiten):"
+
+#. module: custom_background
+#: model:ir.model.fields,field_description:custom_background.field_report_background_lang__display_name
+#: model:ir.model.fields,field_description:custom_background.field_report_background_line__display_name
+msgid "Display Name"
+msgstr "Schermnaam"
+
+#. module: custom_background
+#: model:ir.model.fields.selection,name:custom_background.selection__report_background_line__type__expression
+msgid "Expression"
+msgstr "Uitdrukking"
+
+#. module: custom_background
+#: model_terms:ir.ui.view,arch_db:custom_background.view_ir_action_inherit_form
+msgid "Extra Note"
+msgstr "Extra opmerking"
+
+#. module: custom_background
+#: model:ir.model.fields,field_description:custom_background.field_report_background_line__fall_back_to_company
+msgid "Fall Back To Company"
+msgstr "Terugvallen op het bedrijf"
+
+#. module: custom_background
+#: model:ir.model.fields,field_description:custom_background.field_report_background_lang__file_name
+#: model:ir.model.fields,field_description:custom_background.field_report_background_line__file_name
+msgid "File Name"
+msgstr "Bestandsnaam"
+
+#. module: custom_background
+#: model:ir.model.fields.selection,name:custom_background.selection__report_background_line__type__first_page
+msgid "First Page"
+msgstr "Eerste pagina"
+
+#. module: custom_background
+#: model:ir.model.fields.selection,name:custom_background.selection__report_background_line__type__fixed
+msgid "Fixed Page"
+msgstr "Vaste pagina"
+
+#. module: custom_background
+#: model:ir.model.fields.selection,name:custom_background.selection__ir_actions_report__custom_report_type__company
+msgid "From Company"
+msgstr "Van bedrijf"
+
+#. module: custom_background
+#: model:ir.model.fields.selection,name:custom_background.selection__ir_actions_report__custom_report_type__dynamic
+msgid "From Report Dynamic"
+msgstr "Van Rapport Dynamisch"
+
+#. module: custom_background
+#: model:ir.model.fields.selection,name:custom_background.selection__ir_actions_report__custom_report_type__report
+msgid "From Report Fixed"
+msgstr "Van rapport opgelost"
+
+#. module: custom_background
+#: model:ir.model.fields,field_description:custom_background.field_report_background_lang__id
+#: model:ir.model.fields,field_description:custom_background.field_report_background_line__id
+msgid "ID"
+msgstr ""
+
+#. module: custom_background
+#: model_terms:ir.ui.view,arch_db:custom_background.view_ir_action_inherit_form
+msgid ""
+"If there are no \"Background Configuration\" rules\n"
+"                                    added for any line it will work as a normal Odoo\n"
+"                                    report and will not apply any background to the\n"
+"                                    report."
+msgstr ""
+"Als er geen regels voor de “Achtergrondconfiguratie” zijn\n"
+"                                     toegevoegd voor een regel, dan zal deze werken als een normaal Odoo\n"
+"                                     rapport en wordt er geen achtergrond toegevoegd op de\n"
+"                                     Rappoortage."
+
+#. module: custom_background
+#: model_terms:ir.ui.view,arch_db:custom_background.view_ir_action_inherit_form
+msgid "Interaction with the background configuration"
+msgstr "Interactie met de achtergrondconfiguratie"
+
+#. module: custom_background
+#: model:ir.model.fields,field_description:custom_background.field_ir_actions_report__is_bg_per_lang
+#: model:ir.model.fields,field_description:custom_background.field_res_company__is_bg_per_lang
+msgid "Is Background Per Language"
+msgstr "Instellen achtergrond per taal"
+
+#. module: custom_background
+#: model:ir.model.fields,field_description:custom_background.field_report_background_lang__lang_id
+#: model:ir.model.fields,field_description:custom_background.field_report_background_line__lang_id
+msgid "Language"
+msgstr "Taal"
+
+#. module: custom_background
+#: model:ir.model.fields,field_description:custom_background.field_report_background_lang____last_update
+#: model:ir.model.fields,field_description:custom_background.field_report_background_line____last_update
+msgid "Last Modified on"
+msgstr "Laatst gewijzigd op"
+
+#. module: custom_background
+#: model:ir.model.fields.selection,name:custom_background.selection__report_background_line__type__last_page
+msgid "Last Page"
+msgstr "Laatste pagina"
+
+#. module: custom_background
+#: model:ir.model.fields,field_description:custom_background.field_report_background_lang__write_uid
+#: model:ir.model.fields,field_description:custom_background.field_report_background_line__write_uid
+msgid "Last Updated by"
+msgstr "Laatst bijgewerkt door"
+
+#. module: custom_background
+#: model:ir.model.fields,field_description:custom_background.field_report_background_lang__write_date
+#: model:ir.model.fields,field_description:custom_background.field_report_background_line__write_date
+msgid "Last Updated on"
+msgstr "Laatst bijgewerkt op"
+
+#. module: custom_background
+#: model:ir.model.fields,field_description:custom_background.field_report_background_line__page_expression
+msgid "Page Expression"
+msgstr "Pagina expressie"
+
+#. module: custom_background
+#: model:ir.model.fields,field_description:custom_background.field_report_background_line__page_number
+msgid "Page Number"
+msgstr "Paginanummer"
+
+#. module: custom_background
+#: code:addons/custom_background/models/res_company.py:0
+#, python-format
+msgid ""
+"Please configure Custom Background Per Language because 'Fall Back To "
+"Company' is set in the dynamic type report level!"
+msgstr ""
+"Configureer a.u.b. aangepaste achtergrond per taal omdat 'Fall Back To "
+"Bedrijf' is ingesteld op het rapportniveau dynamisch type!"
+
+#. module: custom_background
+#: code:addons/custom_background/models/res_company.py:0
+#, python-format
+msgid ""
+"Please configure Custom Background Per Language because 'From Company' type "
+"is set at the Report level!"
+msgstr ""
+"Configureer aangepaste achtergrond per taal vanwege het type 'Van bedrijf' "
+"is ingesteld op rapportniveau!"
+
+#. module: custom_background
+#: code:addons/custom_background/models/report.py:0
+#, python-format
+msgid "Please configure Custom Background Per Language for Dynamic type!"
+msgstr "Configureer aangepaste achtergrond per taal voor dynamisch type!"
+
+#. module: custom_background
+#: code:addons/custom_background/models/report.py:0
+#, python-format
+msgid "Please configure Custom Background Per Language for Report type!"
+msgstr "Configureer aangepaste achtergrond per taal voor rapporttype!"
+
+#. module: custom_background
+#: code:addons/custom_background/models/report.py:0
+#: code:addons/custom_background/models/report.py:0
+#, python-format
+msgid "Please configure Custom Background Per Language in every company!"
+msgstr "Configureer aangepaste achtergrond per taal in elk bedrijf!"
+
+#. module: custom_background
+#: model:ir.model.fields.selection,name:custom_background.selection__report_background_line__type__remaining
+msgid "Remaining pages"
+msgstr "Overige pagina's"
+
+#. module: custom_background
+#: model:ir.model.fields,field_description:custom_background.field_report_background_lang__report_id
+#: model:ir.model.fields,field_description:custom_background.field_report_background_line__report_id
+msgid "Report"
+msgstr "Rapport"
+
+#. module: custom_background
+#: model:ir.model,name:custom_background.model_ir_actions_report
+msgid "Report Action"
+msgstr "Rapport actie"
+
+#. module: custom_background
+#: model:ir.model,name:custom_background.model_report_background_line
+msgid "Report Background Line"
+msgstr "Achtergrondregel rapporteren"
+
+#. module: custom_background
+#: model:ir.model,name:custom_background.model_report_background_lang
+msgid "Report Background Line Per Language"
+msgstr "Achtergrondregel per taal rapporteren"
+
+#. module: custom_background
+#: model:ir.model.fields,field_description:custom_background.field_report_background_line__type
+#: model:ir.model.fields,field_description:custom_background.field_report_company_background_lang__type_attachment
+msgid "Type"
+msgstr ""
+
+#. module: custom_background
+#: code:addons/custom_background/models/report.py:0
+#, python-format
+msgid ""
+"Wkhtmltopdf failed (error code: %s). Memory limit too low or maximum file "
+"number of subprocess reached. Message : %s"
+msgstr ""
+"Wkhtmltopdf fout (fout code: %s). Geheugenlimiet te laag of maximale "
+"bestandsnummer van subproces bereikt. Bericht:%s"
+
+#. module: custom_background
+#: code:addons/custom_background/models/report.py:0
+#, python-format
+msgid "Wkhtmltopdf failed (error code: %s). Message: %s"
+msgstr "Wkhtmltopdf fout (error code: %s). Bericht: %s"
+
+#. module: custom_background
+#: model_terms:ir.ui.view,arch_db:custom_background.view_ir_action_inherit_form
+msgid ""
+"You can set the backgroud watermark in a report based on\n"
+"                                the options set in the \"Background Configuration\" tab."
+msgstr ""
+"U kunt het achtergrondwatermerk in een rapport instellen op basis\n"
+"van de opties die zijn ingesteld op het tabblad “Achtergrondconfiguratie”."
+
+#. module: custom_background
+#: model:ir.model.fields.selection,name:custom_background.selection__report_background_line__type__append
+#: model:ir.model.fields.selection,name:custom_background.selection__report_company_background_lang__type_attachment__append
+msgid "Append"
+msgstr "Toevoegen"
+
+#. module: custom_background
+#: model:ir.model.fields.selection,name:custom_background.selection__report_background_line__type__prepend
+#: model:ir.model.fields.selection,name:custom_background.selection__report_company_background_lang__type_attachment__prepend
+msgid "Prepend"
+msgstr "voorgaan"
+
+#. module: custom_background
+#: model:ir.model.fields.selection,name:custom_background.selection__report_company_background_lang__type_attachment__background
+msgid "Background"
+msgstr "Achtergrond"

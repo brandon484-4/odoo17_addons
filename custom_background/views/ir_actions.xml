@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_ir_action_inherit_form" model="ir.ui.view">
+        <field name="name">ir.actions.report.form</field>
+        <field name="model">ir.actions.report</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="base.act_report_xml_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='report_type']" position="after">
+                <field name="custom_report_background" select="1" />
+                <field
+                    name="custom_report_type"
+                    invisible="not custom_report_background"
+                />
+                <!-- Added is_bg_per_lang related domain. #22260 -->
+                <field
+                    name="custom_report_background_image"
+                    invisible="custom_report_type != 'report' or not custom_report_background or is_bg_per_lang"
+                />
+                <!-- New field. #22260 -->
+                <field name="is_bg_per_lang" invisible="not custom_report_background" />
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page
+                    string="Background Configuration"
+                    invisible="custom_report_type != 'dynamic' or not custom_report_background"
+                >
+                    <field name="background_ids">
+                        <form>
+                            <sheet>
+                                <group>
+                                    <group>
+                                        <field name="type" />
+                                        <field name="fall_back_to_company" />
+                                        <field
+                                            name="page_number"
+                                            invisible="type != 'fixed'"
+                                        />
+                                        <field
+                                            name="page_expression"
+                                            invisible="type != 'expression'"
+                                        />
+                                    </group>
+                                    <group>
+                                        <field
+                                            name="background_pdf"
+                                            filename="file_name"
+                                        />
+                                        <!-- New field. #22260 -->
+                                        <field name="file_name" invisible="1" />
+                                        <!-- New field. #22260 -->
+                                        <field
+                                            name="lang_id"
+                                            readonly="not parent.is_bg_per_lang"
+                                            required="parent.is_bg_per_lang"
+                                        />
+                                        <field name="report_id" invisible="1" />
+                                    </group>
+                                </group>
+                            </sheet>
+                        </form>
+                        <tree>
+                            <field name="type" />
+                            <field name="page_number" column_invisible="True" />
+                            <field name="page_expression" column_invisible="True" />
+                            <!-- New field. #22260 -->
+                            <field name="file_name" string="Background PDF" />
+                            <!-- New field. #22260 -->
+                            <field name="lang_id" />
+                            <field name="report_id" column_invisible="True" />
+                        </tree>
+                    </field>
+                    <i
+                        class="fa fa-info fa-3x text-info float-left"
+                        role="img"
+                        aria-label="Info"
+                        title="Info"
+                    />
+                    <h3>Interaction with the background configuration</h3>
+                    <div>
+                        <p>
+                            You can set the backgroud watermark in a report based on
+                            the options set in the "Background Configuration" tab.
+                        </p>
+                        <p>
+                            Detailed algorithm (with their priorities):
+                            <ol>
+                                <li>
+                                    <b>First Page:</b>
+                                    If the option "First Page" is chosen it will not
+                                    look at any other configurations for the first
+                                    page of the PDF.
+                                    <br />
+                                    If no "Background PDF" is set on the "First
+                                    Page" rule then it will set the background PDF
+                                    from the "Fixed Page", "Expression Page" or
+                                    "Remaining Pages".
+                                </li>
+                                <li>
+                                    <b>Last Page:</b>
+                                    If the option "Last Page" is selected, it will
+                                    not check for any other configurations for the
+                                    last page.
+                                    It will only set the last page background PDF
+                                    that you've applied.
+                                    <br />
+                                    If there was no "Background PDF" set on the last
+                                    page then it will set the background PDF from
+                                    the "Fixed Page", "Expression Page" or
+                                    "Remaining Pages".
+                                    <br />
+                                </li>
+                                <li>
+                                    <b>Fixed Pages:</b>
+                                    If the option "Fixed Pages" is selected you can
+                                    enter for which page you'd like to use the
+                                    "Background PDF".
+                                    For example: setting a custom background PDF for
+                                    the third page of a report by entering "3" in
+                                    the field "Page Number".
+                                    <br />
+                                    If the entered page number is first and last
+                                    then it will set the background from "First
+                                    Page" and "Last Page" if we configured the first
+                                    page and the last page otherwise it will use the
+                                    "Fixed Page" configuration.
+                                </li>
+                                <li>
+                                    <b>Expression:</b>
+                                    If the option "Expression" is selected you can
+                                    set custom background PDF's based on
+                                    expressions.
+                                    <br />
+                                    For example if you want only a background on
+                                    every second page you could do:
+                                    <br />
+                                    result=page%2==0
+                                    <br />
+                                    If you want only a background on every uneven
+                                    page (for example page 1,3 ,5) you could do:
+                                    <br />
+                                    result=page%2!=0
+                                    <br />
+                                    Or if you only want a background starting from
+                                    page 2 on for example you could do:
+                                    <br />
+                                    result=page>2
+                                </li>
+                                <li>
+                                    <b>Remaining Pages:</b>
+                                    If the option "Remaining Pages" is selected the
+                                    module will apply the "Background PDF" set on
+                                    this rule for any pages that have no rule.
+                                    You could use this for example if you have a
+                                    rule "First Page" set and then have a second
+                                    rule "Remaining Pages" it would apply this
+                                    background on page 2, 3, .. and any other page
+                                    you have not configured.
+                                </li>
+                            </ol>
+                            Extra Note
+                            <li>
+                                If there are no "Background Configuration" rules
+                                added for any line it will work as a normal Odoo
+                                report and will not apply any background to the
+                                report.
+                            </li>
+                        </p>
+                    </div>
+                </page>
+                <!-- New Page for configure custom BG per Language. #22260 -->
+                <page
+                    string="Background Configuration Per Language"
+                    invisible="not is_bg_per_lang or not custom_report_background or custom_report_type != 'report'"
+                >
+                    <field name="bg_per_lang_ids">
+                        <form>
+                            <group>
+                                <group>
+                                    <field name="lang_id" />
+                                </group>
+                                <group>
+                                    <field name="background_pdf" filename="file_name" />
+                                    <field name="file_name" invisible="1" />
+                                </group>
+                            </group>
+                        </form>
+                        <tree>
+                            <field name="lang_id" />
+                            <field name="file_name" string="Background PDF" />
+                        </tree>
+                    </field>
+                </page>
+
+                 <!-- Added New Page for Configure Custom BG per Company and per Language. #T5886 -->
+                <page
+                    string="Company Background Configuration Per Language"
+                    invisible="not custom_report_background or custom_report_type != 'dynamic_per_report_company_lang'"
+                >
+                    <field name="per_report_com_lang_bg_ids">
+                        <form>
+                            <group>
+                                <group>
+                                    <field name="type_attachment" />
+                                    <field name="lang_id" />
+                                    <field name="company_id" />
+                                </group>
+                                <group>
+                                    <field name="background_pdf" filename="file_name" />
+                                    <field name="file_name" invisible="1" />
+                                </group>
+                            </group>
+                        </form>
+                        <tree>
+                            <field name="type_attachment" />
+                            <field name="lang_id" />
+                            <field name="company_id" />
+                            <field name="file_name" string="Background PDF" />
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,20 @@
+<odoo>
+    <record model="ir.ui.view" id="terms_conds_form">
+        <field name="name">Terms And Conditions</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='other_information']" position="after">
+                    <page name="term_condition" string="Terms and Conditions">
+                        <group name="sales_person" string="Terms And Conditions">
+                            <group>
+                                <field name="is_check_display_report"/>
+                                <field name="terms_id"/>
+                                <field name="conditions_details"/>
+                            </group>
+                        </group>
+                    </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

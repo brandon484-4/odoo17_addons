@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+
+        <record id="view_reject_reason_wizard_form" model="ir.ui.view">
+            <field name="name">Reject Reason Form</field>
+            <field name="model">reject.reason.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Reject Reason ">
+                    <group>
+                        <group>
+                            <field name="reason_reject"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="update_dates" type="object" string="Reject Reason" class="btn-primary"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="action_reject_reason_wizard" model="ir.actions.act_window">
+            <field name="name">Reject Reason</field>
+            <field name="res_model">reject.reason.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

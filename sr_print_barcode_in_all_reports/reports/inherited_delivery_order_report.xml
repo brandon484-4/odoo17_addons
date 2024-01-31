@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<template
+		id="report_delivery_document_extends_add_barcode_in_report"
+		inherit_id="stock.report_delivery_document">
+		<xpath expr="//h2" position="before">
+			<div class="row justify-content-end mb16">
+				<div class="col-4" name="right_box">
+					<img
+						t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', o.name, 600, 100)"
+						style="width:300px;height:50px;" alt="Barcode" />
+				</div>
+			</div>
+		</xpath>
+	</template>
+</odoo>

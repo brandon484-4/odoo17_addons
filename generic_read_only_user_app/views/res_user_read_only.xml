@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data> 
+    	
+       <record id="view_users_form_inherit" model="ir.ui.view">
+            <field name="name">res.users.form</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <button name="action_show_groups" position="after">
+                    <button name="set_read_only_user" type="object" class="oe_stat_button" icon="fa-eye" help="Click for Apply Read only Access and Reset Read Only Access." string="Apply Read Only">
+                        <field name="read_only" invisible="1"/>
+                    </button>
+                </button>
+            </field>
+        </record>
+
+    </data>
+</odoo>

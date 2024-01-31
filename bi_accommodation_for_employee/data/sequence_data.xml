@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="seq_employee_accommodation" model="ir.sequence">
+            <field name="name">Employee Accommodation</field>
+            <field name="code">employee.accommodation</field>
+            <field name="prefix">EAD</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

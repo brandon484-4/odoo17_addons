@@ -1,0 +1,42 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="bi_hotel_list">
+            <field name="name">bi.hotel.list</field>
+            <field name="model">bi.hotel</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="hotel_name"/>
+                    <field name="location_id"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="bi_hotel_form">
+            <field name="name">bi.hotel.form</field>
+            <field name="model">bi.hotel</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="hotel_name"/>
+                                <field name="location_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="bi_hotel_action">
+            <field name="name">Hotels</field>
+            <field name="res_model">bi.hotel</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="menu_accommodation_management" name="Accommodation" sequence="8"/>
+        <menuitem id="menu_configuration_details" name="Configuration" parent="menu_accommodation_management" sequence="9"/>
+        <menuitem name="Hotels" id="type_hotel" parent="menu_configuration_details"
+                  action="bi_hotel_action"
+                  sequence="1"/>
+    </data>
+</odoo>

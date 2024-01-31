@@ -1,0 +1,11 @@
+<odoo>
+    <record id="action_report_employee_accommodation" model="ir.actions.report">
+            <field name="name">Employee Accommodation Report</field>
+            <field name="model">employee.accommodation</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">bi_accommodation_for_employee.print_accommodation_report</field>
+            <field name="report_file">bi_accommodation_for_employee.print_accommodation_report</field>
+            <field name="binding_model_id" ref="model_employee_accommodation"/>
+            <field name="binding_type">report</field>
+    </record>
+</odoo>

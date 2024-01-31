@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_employee_accommodation,access.employee.accommodation,model_employee_accommodation,base.group_user,1,1,1,1
+access_bi_location,access.bi.location,model_bi_location,base.group_user,1,1,1,1
+access_bi_hotel,access.bi.hotel,model_bi_hotel,base.group_user,1,1,1,1
+access_reject_reason_wizard,access.reject.reason.wizard,model_reject_reason_wizard,base.group_user,1,1,1,1
+access_employee_accommodation_hotel_book,access.employee.accommodation.hotel.book,model_employee_accommodation_hotel_book,base.group_user,1,1,1,1
+

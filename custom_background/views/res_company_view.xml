@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="res_company_view_inherit" model="ir.ui.view">
+        <field name="name">res.company.form</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page name="configuration" string="Configuration">
+                    <group>
+                        <field name="is_bg_per_lang" />
+                        <separator
+                            string="Custom Background Image"
+                            colspan="2"
+                            invisible="is_bg_per_lang"
+                        />
+                        <field
+                            name="custom_report_background_image"
+                            invisible="is_bg_per_lang"
+                        />
+                    </group>
+                    <!-- New o2m field for configure custom bg based on different languages. #22260 -->
+                    <separator
+                        string="Custom Background Image Per Language"
+                        colspan="2"
+                        invisible="not is_bg_per_lang"
+                    />
+                    <field
+                        name="bg_per_lang_ids"
+                        invisible="not is_bg_per_lang"
+                        widget="one2many"
+                        nolabel="1"
+                    >
+                        <form>
+                            <group>
+                                <group>
+                                    <field name="lang_id" />
+                                </group>
+                                <group>
+                                    <field name="background_pdf" filename="file_name" />
+                                    <field name="file_name" invisible="1" />
+                                </group>
+                            </group>
+                        </form>
+                        <tree>
+                            <field name="lang_id" />
+                            <field name="file_name" string="Background PDF" />
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="print_accommodation_report">
+            <t t-foreach="docs" t-as="rec">
+                <t t-call="web.html_container">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <div class="oe_structure"/>
+                            <div class="mt20">
+                                <center>
+                                        <h3>
+                                            <div class="mt-2">
+                                                <b><span t-field="rec.request_seq"/></b>
+                                            </div>
+                                        </h3>
+                                </center>
+                                <br/>
+                                <br/>
+                                <div class="row">
+                                    <div class="mb-3 col-6">
+                                        <t t-if="rec.employee_id">
+                                            <span>Employee Name :
+                                                <b>
+                                                    <span t-field="rec.employee_id.name"/>
+                                                </b>
+                                            </span>
+                                        </t>
+                                        <br/>
+                                        <t t-if="rec.email">
+                                            <span>Employee Email :
+                                                <b>
+                                                    <span t-field="rec.email"/>
+                                                </b>
+                                            </span>
+                                        </t>
+                                        <br/>
+                                        <t t-if="rec.phone">
+                                            <span>Employee Phone :
+                                                <b>
+                                                    <span t-field="rec.phone"/>
+                                                </b>
+                                            </span>
+                                        </t>
+                                        <br/>
+                                        <t t-if="rec.manager_id">
+                                            <span>Employee Manager Name :
+                                                <b>
+                                                    <span t-field="rec.manager_id.name"/>
+                                                </b>
+                                            </span>
+                                        </t>
+                                        <br/>
+                                        <t t-if="rec.department_id">
+                                            <span>Employee Department :
+                                                <b>
+                                                    <span t-field="rec.department_id.name"/>
+                                                </b>
+                                            </span>
+                                        </t>
+                                        <br/>
+                                        <t t-if="rec.company_id">
+                                            <span>Company Name :
+                                                <b>
+                                                    <span t-field="rec.company_id.name"/>
+                                                </b>
+                                            </span>
+                                        </t>
+                                    </div>
+                                    <br/>
+                                    <div class="mb-3 col-6" style="text-align:right;">
+                                        <t t-if="rec.req_date" class="text-right">
+                                            <span>Requested date :
+                                                <b>
+                                                    <span t-field="rec.req_date"/>
+                                                </b>
+                                            </span>
+                                        </t>
+                                        <br/>
+                                        <t t-if="rec.paid_by" class=" text-right">
+                                            <span>Paid By :
+                                                <b>
+                                                    <span t-field="rec.paid_by"/>
+                                                </b>
+                                            </span>
+                                        </t>
+                                        <br/>
+                                        <t t-if="rec.location_id" class=" text-right">
+                                            <span>Trip Location Name :
+                                                <b>
+                                                    <span t-field="rec.location_id.location_name"/>
+                                                </b>
+                                            </span>
+                                        </t>
+                                        <br/>
+                                        <t t-if="rec.location_id" class=" text-right">
+                                            <span>Total Expenses :
+                                                <b>
+                                                    <span t-field="rec.amount"/>
+                                                </b>
+                                            </span>
+                                        </t>
+                                        <br/>
+                                        <t t-if="rec.state" class=" text-right">
+                                            <span>Application Status :
+                                                <b>
+                                                    <span t-field="rec.state"/>
+                                                </b>
+                                            </span>
+                                        </t>
+                                        <br/>
+                                        <t t-if="rec.reject_reason" class=" text-right">
+                                            <span>Reject Reason :
+                                                <b>
+                                                    <span t-field="rec.reject_reason"/>
+                                                </b>
+                                            </span>
+                                        </t>
+
+                                    </div>
+                                </div>
+                                <br/>
+                                <span style="font-size:23px"><b>Hotel Booking Details</b></span>
+                                 <table width="100%" class="table table-bordered" name="accomadation_table" >
+                                    <div style="font-size: 15px;">
+                                        <thead>
+                                            <tr>
+                                                <th style="font-size:16px" >
+                                                    <center>Hotel Name</center>
+                                                </th>
+                                                <th style="font-size:16px" >
+                                                    <center>Start Date</center>
+                                                </th>
+                                                <th style="font-size:16px" >
+                                                    <center>End Date</center>
+                                                </th>
+                                                <th style="font-size:15px" >
+                                                    <center>No.of Days</center>
+                                                </th>
+                                                <th style="font-size:16px" >
+                                                    <center>Cost Per Day</center>
+                                                </th>
+                                                <th style="font-size:16px" >
+                                                    <center>Total Cost</center>
+                                                </th>
+                                                 <th style="font-size:16px" >
+                                                    <center>Status</center>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                             <t t-foreach="rec.book_ids" t-as="line">
+                                                <tr>
+                                                    <td style="font-size:16px">
+                                                        <center>
+                                                            <span t-field="line.hotel_id.hotel_name"/>
+                                                        </center>
+                                                    </td>
+                                                    <td style="font-size:16px">
+                                                        <center>
+                                                            <span t-field="line.starting_date"/>
+                                                        </center>
+                                                    </td>
+                                                    <td style="font-size:16px">
+                                                        <center>
+                                                            <span t-field="line.ending_date"/>
+                                                        </center>
+                                                    </td>
+                                                    <td style="font-size:16px">
+                                                        <center>
+                                                            <span t-field="line.count_day"/>
+                                                        </center>
+                                                    </td>
+                                                    <td style="font-size:16px">
+                                                        <center>
+                                                            <span t-field="line.cost_per_day"/>
+                                                        </center>
+                                                    </td>
+                                                    <td style="font-size:16px">
+                                                        <center>
+                                                            <span t-field="line.total_cost"/>
+                                                        </center>
+                                                    </td>
+                                                    <td style="font-size:16px">
+                                                        <center>
+                                                            <span t-field="line.state"/>
+                                                        </center>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </tbody>
+                                    </div>
+                                    </table>
+                                    <br/>
+                                    <t t-if="rec.description" class="">
+                                        <span>
+                                            <h5><b>Description</b></h5>
+                                            <span style="font-size:17px" t-field="rec.description"/>
+                                        </span>
+                                    </t>
+                                    <br/>
+                                    <div class="col-xs-12" style="width:100%; margin-top: 300px;">
+                                        <table style="width: 100%;border:white;">
+                                            <colgroup>
+                                                <col span="3"  width="42%"/>
+                                            </colgroup>
+                                            <tr>
+                                                <td>
+                                                    <span style="border-top: 1px solid; width:130px;">Signature of Employee</span>
+                                                </td>
+                                                <td>
+                                                    <span style="border-top: 1px solid;float:center;">Signature of Manager
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span style="border-top: 1px solid;  margin-right:10px;">Signature of HR
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

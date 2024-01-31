@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+        <template id="sale_report_template_for_sale_confirm" inherit_id="sale.report_saleorder_document">
+             <xpath expr="//div[hasclass('page')]/div[2]" position="inside">
+                <div t-if="doc.confirm_user_id" class="col-auto col-3 mw-100 mb-2">
+                    <strong>Confirm By:</strong>
+                    <p t-field="doc.confirm_user_id"/>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>

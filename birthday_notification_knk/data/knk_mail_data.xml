@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="employee_birthday_notification_template" model="mail.template">
+            <field name="name">Employee: Birthday Notification</field>
+            <field name="email_from">"{{object.company_id.name}}" &lt;{{(object.company_id.email or user.email)}}&gt;</field>
+            <field name="subject">Birthday Wishes from {{object.company_id.name}}</field>
+            <field name="email_to">{{object.work_email}}</field>
+            <field name="model_id" ref="hr.model_hr_employee" />
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0" style="padding-top: 16px; padding-bottom: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;">
+                    <tr>
+                        <td align="center">
+                            <table border="0" cellpadding="0" cellspacing="0" width="590" style="padding: 16px; background-color: white; color: #454748; border-collapse:separate;">
+                                <tbody>
+                                    <!-- HEADER -->
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tr>
+                                                    <td valign="middle" align="right">
+                                                        <!-- <img src="/logo.png?company={{object.company_id.id}}" style="padding: 0px; margin: 0px; height: auto; width: 80px;" alt="{{object.company_id.name}}" /> -->
+                                                        <!-- <img t-attf-src="/logo.png?company={{ object.company_id.id }}" style="padding: 0px; margin: 0px; height: 48px;" t-att-alt="object.company_id.name"/> -->
+                                                        <img t-attf-src="/logo.png?company={{ object.company_id.id }}" style="padding: 0px; margin: 0px; height: auto; width: 80px;" t-att-alt="object.company_id.name"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" style="text-align:center;">
+                                                        <hr width="100%" style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!-- CONTENT -->
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tr>
+                                                    <td valign="top" style="font-size: 13px;">
+                                                        <div>
+                                                            <!-- <p>Dear {{object.name}},</p> -->
+                                                            <p>Dear <t t-out="object.name" />,</p>
+                                                            <p>Happy Birthday..!</p>
+                                                            <p>Wishing you a very very Happy Birthday.</p>
+                                                            <p>Hope you have a great year ahead. Stay Healthy, Stay Happy &amp; Stay Safe.</p>
+                                                            <br />
+                                                            <p>Thanks,</p>
+                                                            <!-- <p>{{object.company_id.name}}</p> -->
+                                                            <p><t t-out="object.company_id.name" /></p>
+                                                            <br /><br />
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align:center;">
+                                                        <hr width="100%" style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!-- FOOTER -->
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tr>
+                                                    <td valign="middle" align="left">
+                                                        <!-- {{object.company_id.name}} -->
+                                                        <t t-out="object.company_id.name"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="middle" align="left" style="opacity: 0.7;">
+                                                        <!-- {{object.company_id.phone}}
+                                                        {% if object.company_id.email}
+                                                        | <a href="'mailto:%s' % {{object.company_id.email}" style="text-decoration:none; color: #454748;">{{object.company_id.email}}</a>
+                                                        {% endif}
+                                                        {% if object.company_id.website}
+                                                        | <a href="'%s' % {{object.company_id.website}}" style="text-decoration:none; color: #454748;">
+                                                            {{object.company_id.website}}
+                                                        </a>
+                                                        {% endif} -->
+                                                        <t t-out="object.company_id.phone"/>
+                                                        <t t-if="object.company_id.email">
+                                                            | <a t-attf-href="'mailto:%s' % {{ object.company_id.email }}" style="text-decoration:none; color: #454748;"><t t-out="object.company_id.email"></t></a>
+                                                        </t>
+                                                        <t t-if="object.company_id.website">
+                                                            | <a t-attf-href="'%s' % {{ object.company_id.website }}" style="text-decoration:none; color: #454748;">
+                                                                <t t-out="object.company_id.website"></t>
+                                                            </a>
+                                                        </t>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </field>
+        </record>
+        <record id="contact_birthday_notification_template" model="mail.template">
+            <field name="name">Contact: Birthday Notification</field>
+            <field name="email_from">"{{object.company_id.name}}" &lt;{{(object.company_id.email or user.email)}}&gt;</field>
+            <field name="subject">Birthday Wishes from {{object.company_id.name}}</field>
+            <field name="email_to">{{object.email_formatted}}</field>
+            <field name="model_id" ref="base.model_res_partner" />
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0" style="padding-top: 16px; padding-bottom: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;">
+                    <tr>
+                        <td align="center">
+                            <table border="0" cellpadding="0" cellspacing="0" width="590" style="padding: 16px; background-color: white; color: #454748; border-collapse:separate;">
+                                <tbody>
+                                    <!-- HEADER -->
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tr>
+                                                    <td valign="middle" align="right">
+                                                        <!-- <img src="/logo.png?company={{object.company_id.id}}" style="padding: 0px; margin: 0px; height: auto; width: 80px;" alt="{{object.company_id.name}}" /> -->
+                                                        <img t-attf-src="/logo.png?company={{ object.company_id.id }}" style="padding: 0px; margin: 0px; height: auto; width: 80px;" t-att-alt="object.company_id.name"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" style="text-align:center;">
+                                                        <hr width="100%" style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!-- CONTENT -->
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tr>
+                                                    <td valign="top" style="font-size: 13px;">
+                                                        <div>
+                                                            <!-- <p>Dear {{object.name}},</p> -->
+                                                            <p>Dear <t t-out="object.name" />,</p>
+                                                            <p>Happy Birthday..!</p>
+                                                            <p>Wishing you a very very Happy Birthday.</p>
+                                                            <p>Hope you have a great year ahead. Stay Healthy, Stay Happy &amp; Stay Safe.</p>
+                                                            <br />
+                                                            <p>Thanks,</p>
+                                                            <!-- <p>{{object.company_id.name}}</p> -->
+                                                            <p><t t-out="object.company_id.name" /></p>
+                                                            <br /><br />
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align:center;">
+                                                        <hr width="100%" style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 16px 0px;" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <!-- FOOTER -->
+                                    <tr>
+                                        <td align="center" style="min-width: 590px;">
+                                            <table border="0" cellpadding="0" cellspacing="0" width="590" style="min-width: 590px; background-color: white; font-size: 11px; padding: 0px 8px 0px 8px; border-collapse:separate;">
+                                                <tr>
+                                                    <td valign="middle" align="left">
+                                                        <!-- {{object.company_id.name}} -->
+                                                        <t t-out="object.company_id.name" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td valign="middle" align="left" style="opacity: 0.7;">
+                                                        <!-- {{object.company_id.phone}}
+                                                        {% if object.company_id.email}
+                                                        | <a href="'mailto:%s' % {{object.company_id.email}}" style="text-decoration:none; color: #454748;">{{object.company_id.email}}</a>
+                                                        {% endif}
+                                                        {% if object.company_id.website}
+                                                        | <a href="'%s' % {{object.company_id.website}}" style="text-decoration:none; color: #454748;">
+                                                            {{object.company_id.website}}
+                                                        </a>
+                                                        {% endif} -->
+                                                        <t t-out="object.company_id.phone"/>
+                                                        <t t-if="object.company_id.email">
+                                                            | <a t-attf-href="'mailto:%s' % {{ object.company_id.email }}" style="text-decoration:none; color: #454748;"><t t-out="object.company_id.email"></t></a>
+                                                        </t>
+                                                        <t t-if="object.company_id.website">
+                                                            | <a t-attf-href="'%s' % {{ object.company_id.website }}" style="text-decoration:none; color: #454748;">
+                                                                <t t-out="object.company_id.website"></t>
+                                                            </a>
+                                                        </t>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </field>
+        </record>
+    </data>
+</odoo>

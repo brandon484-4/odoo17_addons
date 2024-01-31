@@ -1,0 +1,19 @@
+<odoo>
+    <data>
+        <record model="ir.module.category" id="employee_accommodation_module">
+            <field name="name">Accommodation Rights</field>
+            <field name="description">Rights For HR and Manager</field>
+            <field name="sequence">7</field>
+         </record>
+
+        <record id="group_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="employee_accommodation_module"/>
+        </record>
+
+        <record id="group_hr" model="res.groups">
+            <field name="name">HR </field>
+            <field name="category_id" ref="employee_accommodation_module"/>
+       </record>
+    </data>
+</odoo>
