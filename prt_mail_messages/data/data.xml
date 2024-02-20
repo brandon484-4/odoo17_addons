@@ -1,0 +1,32 @@
+<odoo noupdate="1">
+    <!-- Partner category (=partner tag) used to mark partners created from Conversations -->
+    <record id="cetmix_conversations_partner_cat" model="res.partner.category">
+        <field name="name">Conversations</field>
+    </record>
+    <!-- Default message text preview length -->
+    <record id="cetmix_message_preview_length" model="ir.config_parameter">
+        <field name="key">cetmix.messages_easy_text_preview</field>
+        <field name="value">150</field>
+    </record>
+    <!-- Default BG color for internal notes -->
+    <record id="cetmix_message_in_bg_color" model="ir.config_parameter">
+        <field name="key">cetmix.messages_easy_color_note</field>
+        <field name="value">#fbd78b</field>
+    </record>
+    <!-- Default Message Signature Location -->
+    <record id="cetmix_message_signature_location" model="ir.config_parameter">
+        <field name="key">cetmix.message_signature_location</field>
+        <field name="value">a</field>
+    </record>
+    <!-- Referable models -->
+    <record id="cx_model_reference_res_partner" model="cx.model.reference">
+        <field name="sequence">10</field>
+        <field name="ir_model_id" ref="base.model_res_partner" />
+        <field name="custom_name">Contact</field>
+    </record>
+    <record id="cx_model_reference_cetmix_conversation" model="cx.model.reference">
+        <field name="sequence">11</field>
+        <field name="ir_model_id" ref="model_cetmix_conversation" />
+        <field name="custom_name">Conversation</field>
+    </record>
+</odoo>

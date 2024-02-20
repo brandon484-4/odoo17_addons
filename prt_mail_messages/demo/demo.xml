@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+
+    <record id="res_partner_test_1" model="res.partner">
+        <field name="name">Test Partner #1</field>
+        <field name="email">test.partner@example.com</field>
+    </record>
+
+    <!--
+        To related partner with user_demo xml_id added.
+        Xml_id needed for user_demo join to conversation.
+        -->
+    <function model="ir.model.data" name="_update_xmlids">
+        <value
+            model="base"
+            eval="[{
+                'xml_id': 'prt_mail_messages.user_demo',
+                'record': obj().env.ref('base.user_demo').partner_id,
+                'noupdate': True,
+            }]"
+        />
+    </function>
+
+    <record id="cetmix_conversation_test_1" model="cetmix.conversation">
+        <field name="active" eval="True" />
+        <field name="name">Test Conversation #1</field>
+        <field name="partner_ids" eval="[(4, ref('prt_mail_messages.user_demo'))]" />
+    </record>
+
+    <record id="cetmix_conversation_test_2" model="cetmix.conversation">
+        <field name="active" eval="True" />
+        <field name="name">Test Conversation #2</field>
+    </record>
+
+    <record id="mail_message_test_1" model="mail.message">
+        <field name="res_id" ref="cetmix_conversation_test_1" />
+        <field name="model">cetmix.conversation</field>
+        <field name="reply_to">test.reply@example.com</field>
+        <field name="email_from">test.from@example.com</field>
+        <field name="body">Mail message Body #1</field>
+    </record>
+
+    <record id="mail_message_test_2" model="mail.message">
+        <field name="res_id" ref="cetmix_conversation_test_1" />
+        <field name="model">cetmix.conversation</field>
+        <field name="reply_to">test.reply@example.com</field>
+        <field name="email_from">test.from@example.com</field>
+        <field name="body">Mail message Body #2</field>
+    </record>
+
+    <record id="mail_message_test_3" model="mail.message">
+        <field name="active" eval="False" />
+        <field name="delete_uid" ref="base.user_demo" />
+        <field name="delete_date" eval="datetime.now() - timedelta(days=3)" />
+        <field name="reply_to">test.expl@example.com</field>
+        <field name="email_from">test.from@example.com</field>
+    </record>
+
+    <record id="base.user_demo" model="res.users">
+        <field
+            name="groups_id"
+            eval="[
+            (4, ref('prt_mail_messages.group_delete')),
+            (4, ref('prt_mail_messages.group_conversation_own')),
+            (4, ref('prt_mail_messages.group_notes_edit_own')),
+            (4, ref('prt_mail_messages.group_messages_edit_own')),
+        ]"
+        />
+    </record>
+
+    <record id="base.user_admin" model="res.users">
+        <field
+            name="groups_id"
+            eval="[
+                (4, ref('prt_mail_messages.group_delete_any')),
+                (4, ref('prt_mail_messages.group_conversation_all')),
+                (4, ref('prt_mail_messages.group_technical')),
+                (4, ref('prt_mail_messages.group_notes_edit_all')),
+                (4, ref('prt_mail_messages.group_messages_edit_all')),
+                (4, ref('prt_mail_messages.group_move'))
+            ]"
+        />
+    </record>
+
+</odoo>
